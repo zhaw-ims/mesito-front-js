@@ -9,12 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MachineComponent } from './machine/machine.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     MachineComponent,
   ],
   imports: [
@@ -23,6 +26,8 @@ import { MachineComponent } from './machine/machine.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
     HttpClientModule,
   ],
   providers: [],
