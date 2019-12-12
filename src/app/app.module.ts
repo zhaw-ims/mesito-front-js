@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
+import { MachineComponent } from './machine/machine.component';
 
 
 @NgModule({
   declarations: [
     AppComponent
+    MachineComponent,
   ],
   imports: [
     BrowserModule,
