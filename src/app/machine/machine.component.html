@@ -1,0 +1,18 @@
+<p>machine works!</p>
+<div class="flex-container">
+    <mat-card *ngFor="let m of machines; let i=index;" class="flex-item">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{m[1]}}</mat-card-title>
+            <mat-card-subtitle><span class="badge">ID: {{i+1}}</span></mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://www.wenk-ag.ch/de/slides/marke-mazak/weblication/wThumbnails/mazak.integrex-i400st.smoothX-3db0fb6f4e0c189g628342b456786c56@2x.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p></p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button routerLink="/machine-details/{{m[0]}}">Details</button>
+            <button mat-button (click)="delete(m[0])">DELETE</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
