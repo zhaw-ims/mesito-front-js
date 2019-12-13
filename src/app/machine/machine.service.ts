@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -11,27 +10,24 @@ export class MachineService {
   readonly endpoint = 'http://localhost:8888/api/';
   readonly httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type': 'application/json'
     })
   };
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
   private extractData(res: Response) {
-    return res || { };
+    return res || {};
   }
   getMachines(): Observable<any> {
-    return this.http.post(this.endpoint + 'machines', {}).pipe(
-      map(this.extractData));
+    return this.http.post(this.endpoint + 'machines', {}).pipe(map(this.extractData));
   }
   getMachine(id): Observable<any> {
-    return this.http.get(this.endpoint + 'machine/' + id).pipe(
-      map(this.extractData));
+    return this.http.get(this.endpoint + 'machine/' + id).pipe(map(this.extractData));
   }
   addMachine(machine): Observable<any> {
     console.log(machine);
     return this.http.post<any>(this.endpoint + 'machine', JSON.stringify(machine), this.httpOptions).pipe(
-      tap((newMachine) => console.log(`added machine with id=${newMachine.id}`)),
+      tap(newMachine => console.log(`added machine with id=${newMachine.id}`)),
       catchError(this.handleError<any>('addProduct'))
     );
   }
